@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .quiz-container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <h2>Simple Quiz</h2>
+
+        <div class="question" id="question1">
+            <p>1. What is 2 + 2?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="4"> 4</label>
+                <label><input type="radio" name="q1" value="5"> 5</label>
+                <label><input type="radio" name="q1" value="6"> 6</label>
+            </div>
+        </div>
+
+        <div class="question" id="question2">
+            <p>2. Which planet is known as the Red Planet?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="venus"> Venus</label>
+                <label><input type="radio" name="q2" value="mars"> Mars</label>
+                <label><input type="radio" name="q2" value="jupiter"> Jupiter</label>
+            </div>
+        </div>
+
+        <button onclick="submitQuiz()">Submit Answers</button>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            let score = 0;
+
+            const userAnswer1 = document.querySelector('input[name="q1"]:checked').value;
+            const userAnswer2 = document.querySelector('input[name="q2"]:checked').value;
+
+            if (userAnswer1== "4") {
+                score++;
+            }
+
+            if (userAnswer2  == "mars") {
+                score++;
+            }
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `Your score: ${score} out of 2`;
+        }
+    </script>
+
+</body>
+</html>
